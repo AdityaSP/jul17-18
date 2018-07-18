@@ -1,5 +1,7 @@
 # Savings Account, Current Account
 # SA if the b < amount = Should not allow
+class InsufficientBalanceError(Exception):
+    pass
 
 class Account():
     def __init__(self, n, b, t):
@@ -16,9 +18,9 @@ class SA(Account):
         Account.__init__(self, n, b, 'S')
     def debit(self, amount):
         if self.b >= amount:
-            self.b -= amount
+            Account.debit(self, amount)
         else:
-            raise ValueError('Insufficient balance')
+            raise InsufficientBalanceError('Insufficient balance')
 
 class CA(Account):
     def __init__(self, n, b=0):

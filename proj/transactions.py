@@ -4,10 +4,15 @@ sa = core.bank.SA('Aditya')
 print(sa.n, sa.b, sa.t)
 sa.credit(100)
 print(sa.n, sa.b, sa.t)
-sa.debit(2000)
+
+try:
+    sa.debit(2000)
+except core.bank.InsufficientBalanceError as err:
+    print("Please check your balance and try again")
+except Exception as err:
+    print("Something went wrong. Contact the bank for details")
+
 print(sa.n, sa.b, sa.t)
-
-
 ca = core.bank.CA('ABC Ltd')
 print(ca.n, ca.b, ca.t)
 ca.credit(200)

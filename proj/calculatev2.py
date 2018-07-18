@@ -14,8 +14,6 @@
 # print(add(3,4))
 # print(sub(3,4))
 
-import utils.mathops as ops
-print(ops.add(3,4))
-print(ops.sub(3,4))
-
-
+# import utils.mathops as ops
+# print(ops.add(3,4))
+# print(ops.sub(3,4))
